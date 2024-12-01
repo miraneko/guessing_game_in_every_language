@@ -20,9 +20,9 @@ Begin
     ReadLn(guess);
 
     If guess < n Then
-      WriteLn('Your guess is to low :(')
+      WriteLn('Your guess is too low :(')
     Else If guess > n Then
-           WriteLn('Your guess is to high :(');
+           WriteLn('Your guess is too high :(');
 
     nStep := nStep + 1
   Until (guess = n);
