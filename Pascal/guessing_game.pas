@@ -16,7 +16,7 @@ Begin
   WriteLn('You should guess the number in range 1 .. 100');
 
   Repeat
-    Write('Please enter an integer: ');
+    Write('Please enter your guess: ');
     ReadLn(guess);
 
     If guess < n Then
