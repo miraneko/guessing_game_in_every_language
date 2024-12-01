@@ -2,4 +2,4 @@
 
 Implementing the guessing game in every language!
 
-It would be good if you will add few more implementations
+It would be good if you will add or improve few more implementations
