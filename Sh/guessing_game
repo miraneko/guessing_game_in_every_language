@@ -1,0 +1,30 @@
+#!/bin/sh
+
+n=$(awk 'BEGIN { srand(); printf("%d\n", int(rand() * 100) + 1) }')
+step=1
+
+echo "You should guess the number in range 1 .. 100"
+
+while true; do
+    echo "Please enter a number: "
+    read -r guess
+
+    case "$guess" in
+    '' | *[!0-9]*)
+        echo "You entered bullshit"
+        continue
+        ;;
+    esac
+
+    if [ "$guess" -lt "$n" ]; then
+        echo "Your number is too low :("
+    elif [ "$guess" -gt "$n" ]; then
+        echo "Your number is too high :("
+    else
+        break
+    fi
+
+    step=$((step + 1))
+done
+
+echo "You won in $step steps!"
