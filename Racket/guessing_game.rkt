@@ -9,17 +9,14 @@
   (let ([guess (string->number (read-line))])
     (cond
       [(not guess)
-       (begin
-         (displayln "You entered bullshit")
-         (loop step))]
+       (displayln "You entered bullshit")
+       (loop step)]
       [(< guess n)
-       (begin
-         (displayln "Your guess is too low")
-         (loop (+ step 1)))]
+       (displayln "Your guess is too low")
+       (loop (+ step 1))]
       [(> guess n)
-       (begin
-         (displayln "Your guess is too high")
-         (loop (+ step 1)))]
+       (displayln "Your guess is too high")
+       (loop (+ step 1))]
       [else (displayln (string-append "You won in "
                                       (number->string step)
                                       " steps"))])))
