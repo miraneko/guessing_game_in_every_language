@@ -5,16 +5,15 @@ let () =
   let rec game_loop step =
     print_string "Enter your guess: ";
     let input = read_line () in
-    match int_of_string_opt input with
-    | None ->
+    match int_of_string input with
+    | exception Failure _ ->
         print_endline "You entered bullshit";
         game_loop step
-    | Some guess ->
-        if guess < n then begin
-            print_endline "Your guess is too low";
-            game_loop (step + 1)
-        end else if guess > n then begin
-            print_endline "Your guess is too high";
-            game_loop (step + 1)
-        end else Printf.printf "You won in %d steps!\n" step
-  in game_loop 1;;
+    | guess when guess < n ->
+        print_endline "Your guess is too low";
+        game_loop (step + 1)
+    | guess when guess > n ->
+        print_endline "Your guess is too high";
+        game_loop (step + 1)
+    | _ -> Printf.printf "You won in %d steps!\n" step
+  in game_loop 1
